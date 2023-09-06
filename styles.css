@@ -1,0 +1,36 @@
+body {
+    background-color: blanchedalmond;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    font-size: 48px;
+    margin: 32px;
+    padding: 12px;
+    border: solid 1px black;
+}
+
+.books-container-title {
+    font-size: 32px;
+    border: solid 1px black;
+    margin-bottom: 18px;
+    padding: 12px;
+}
+
+.book-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
+
+.book-card {
+    border: solid 1px black;
+    margin: 8px;
+}
