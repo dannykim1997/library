@@ -1,4 +1,4 @@
-const myLibrary = [
+let myLibrary = [
     {
         title: "The Hobbit",
         author: "J.R.R. Tolkien",
@@ -13,31 +13,18 @@ const myLibrary = [
     }
 ];
 
-const bookCardsContainer = document.querySelector(".book-cards-container");
-const showButton = document.querySelector(".show-form");
-const form = document.querySelector(".form-popup");
-const submitButton = document.querySelector(".submit");
-const cancelButton = document.querySelector(".cancel");
-
+let bookCardsContainer = document.querySelector(".book-cards-container");
+let showButton = document.querySelector(".show-form");
+let form = document.querySelector(".form-popup");
+let submitButton = document.querySelector(".submit");
+let cancelButton = document.querySelector(".cancel");
 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-}
-
-
-function addBookToLibrary() {
-    let title = "Hairy Pothead";
-    let author = "JJK Rolling";
-    let pages = 293;
-    let read = false;
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    displayBooks()
-}
-addBookToLibrary()
+};
 
 function displayBooks() {
     myLibrary.forEach((book) => {
@@ -65,9 +52,38 @@ function displayBooks() {
         bookCard.appendChild(bookRead);
         bookCardsContainer.appendChild(bookCard);
     })
-}
+};
+displayBooks();
 
 showButton.addEventListener("click", () => {
     form.showModal();
-    console.log("click");
+});
+
+function addBookToLibrary() {
+
+    let title = document.querySelector("#title").value;
+    let author = document.querySelector("#author").value;
+    let pages = document.querySelector("#pages").value;
+    let read = false
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    displayBooks();
+};
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    clearAllBooks();
+    addBookToLibrary();
+    form.close();
+});
+
+cancelButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    form.close();
 })
+
+function clearAllBooks() {
+    while(bookCardsContainer.hasChildNodes()) {
+        bookCardsContainer.removeChild(bookCardsContainer.firstChild)
+    }
+};
