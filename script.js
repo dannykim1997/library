@@ -14,6 +14,11 @@ const myLibrary = [
 ];
 
 const bookCardsContainer = document.querySelector(".book-cards-container");
+const showButton = document.querySelector(".show-form");
+const form = document.querySelector(".form-popup");
+const submitButton = document.querySelector(".submit");
+const cancelButton = document.querySelector(".cancel");
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -61,3 +66,8 @@ function displayBooks() {
         bookCardsContainer.appendChild(bookCard);
     })
 }
+
+showButton.addEventListener("click", () => {
+    form.showModal();
+    console.log("click");
+})

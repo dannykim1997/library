@@ -11,26 +11,33 @@
     <div class="container">
         <div class="header">My Library</div>
         <div class="books-container-title">Book Collection</div>
-        <!-- <div class="library-container"> -->
-            <!-- <div class="library-container-title">Book Collection</div> -->
         <div class="book-cards-container"></div>
-
-        <!-- <dialog> -->
-            <form>
+        <dialog class="form-popup">
+            <form class="form">
                 <p>
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title">
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
-                    <label for="pages">Pages:</label>
-                    <input type="number" id="pages" name="pages">
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+                    <div>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author">
+                    </div>
+                    <div>
+                        <label for="pages">Pages:</label>
+                        <input type="number" id="pages" name="pages">
+                    </div>
+                    <div>
+                        <button class="cancel">Cancel</button>
+                        <button class="submit">Submit</button>
+                    </div>
                 </p>
             </form>
-        <!-- </dialog> -->
+        </dialog>
         <div class="button-container">
-            <button class="add-book">Add Book</button>
+            <button class="show-form">Add Book</button>
         </div>
-        <!-- </div> -->
+        <output></output>
     </div>
 </body>
 </html>
