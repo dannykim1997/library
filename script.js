@@ -32,23 +32,26 @@ function displayBooks() {
         let bookTitle = document.createElement("div");
         let bookAuthor = document.createElement("div");
         let bookPages = document.createElement("div");
-        let bookRead = document.createElement("div");
+        let bookRead = document.createElement("button");
         let removeButton = document.createElement("button");
+
         bookCard.classList.add("book-card");
         bookTitle.classList.add("book-title");
         bookAuthor.classList.add("book-author");
         bookPages.classList.add("book-pages");
         bookRead.classList.add("book-read");
         removeButton.classList.add("remove-button");
+
         bookTitle.textContent = book.title;
         bookAuthor.textContent = book.author;
         bookPages.textContent = book.pages;
-        removeButton.textContent = "delete";
         if(book.read) {
             bookRead.textContent = "read"
         } else {
             bookRead.textContent = "not read"
         }
+        removeButton.textContent = "delete";
+
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
@@ -61,6 +64,13 @@ function displayBooks() {
             clearAllBooks();
             displayBooks();
         });
+
+        bookRead.addEventListener("click", () => {
+            book.read = !book.read;
+            clearAllBooks();
+            displayBooks();
+        });
+
     })
 };
 
@@ -97,7 +107,3 @@ function clearAllBooks() {
         bookCardsContainer.removeChild(bookCardsContainer.firstChild)
     }
 };
-
-// function removeBook() {
-
-// };
