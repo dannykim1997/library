@@ -33,14 +33,17 @@ function displayBooks() {
         let bookAuthor = document.createElement("div");
         let bookPages = document.createElement("div");
         let bookRead = document.createElement("div");
+        let removeButton = document.createElement("button");
         bookCard.classList.add("book-card");
         bookTitle.classList.add("book-title");
         bookAuthor.classList.add("book-author");
         bookPages.classList.add("book-pages");
         bookRead.classList.add("book-read");
+        removeButton.classList.add("remove-button");
         bookTitle.textContent = book.title;
         bookAuthor.textContent = book.author;
         bookPages.textContent = book.pages;
+        removeButton.textContent = "delete";
         if(book.read) {
             bookRead.textContent = "read"
         } else {
@@ -50,9 +53,17 @@ function displayBooks() {
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
         bookCard.appendChild(bookRead);
+        bookCard.appendChild(removeButton);
         bookCardsContainer.appendChild(bookCard);
+
+        removeButton.addEventListener("click", () => {
+            myLibrary.splice(myLibrary.indexOf(book), 1);
+            clearAllBooks();
+            displayBooks();
+        });
     })
 };
+
 displayBooks();
 
 showButton.addEventListener("click", () => {
@@ -60,7 +71,6 @@ showButton.addEventListener("click", () => {
 });
 
 function addBookToLibrary() {
-
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
@@ -80,10 +90,14 @@ submitButton.addEventListener("click", (event) => {
 cancelButton.addEventListener("click", (event) => {
     event.preventDefault();
     form.close();
-})
+});
 
 function clearAllBooks() {
     while(bookCardsContainer.hasChildNodes()) {
         bookCardsContainer.removeChild(bookCardsContainer.firstChild)
     }
 };
+
+// function removeBook() {
+
+// };
