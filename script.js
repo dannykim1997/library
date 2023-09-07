@@ -6,9 +6,9 @@ let myLibrary = [
         read: false
     },
     {
-        title: "Naruto",
-        author: "Weeb",
-        pages: 100,
+        title: "The Cat in the Hat",
+        author: "Dr.Seuss",
+        pages: 61,
         read: false
     }
 ];
@@ -43,8 +43,8 @@ function displayBooks() {
         removeButton.classList.add("remove-button");
 
         bookTitle.textContent = book.title;
-        bookAuthor.textContent = book.author;
-        bookPages.textContent = book.pages;
+        bookAuthor.textContent = `by ${book.author}`;
+        bookPages.textContent = `${book.pages} pgs`;
         if(book.read) {
             bookRead.textContent = "read"
         } else {
